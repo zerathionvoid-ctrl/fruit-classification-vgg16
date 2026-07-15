@@ -6,6 +6,18 @@ from PIL import Image
 MODEL_PATH = "saved_model/fruit_vgg16.keras"
 CLASS_PATH = "saved_model/class_names.json"
 
+import os
+import urllib.request
+
+
+if (not os.path.exists(MODEL_PATH)) or os.path.getsize(MODEL_PATH) < 1000000:
+    os.makedirs("saved_model", exist_ok=True)
+
+    urllib.request.urlretrieve(
+        "https://github.com/zerathionvoid-ctrl/fruit-classification-vgg16/releases/download/v1.0/fruit_vgg16.keras",
+        MODEL_PATH
+    )
+
 model = tf.keras.models.load_model(MODEL_PATH)
 
 with open(CLASS_PATH, "r") as f:
