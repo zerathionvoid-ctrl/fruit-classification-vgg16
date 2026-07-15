@@ -1,0 +1,15 @@
+venv/
+__pycache__/
+*.pyc
+
+dataset/
+
+logs/
+
+.git
+
+.vscode/
+
+.env
+
+saved_model/fruit_vgg16.keras
